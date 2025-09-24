@@ -16,9 +16,7 @@ class Appointment:
                  status: str,
                  appointment_type: Optional[str] = None,
                  location: Optional[str] = None,
-                 notes: Optional[str] = None,
-                 created_at: Optional[datetime] = None,
-                 updated_at: Optional[datetime] = None):
+                 notes: Optional[str] = None):
         self.appointment_id = appointment_id
         self.patient_id = patient_id
         self.doctor_id = doctor_id
@@ -29,8 +27,8 @@ class Appointment:
         self.appointment_type = appointment_type
         self.location = location
         self.notes = notes
-        self.created_at = created_at or datetime.now()
-        self.updated_at = updated_at or datetime.now()
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def __repr__(self):
         return (f"Appointment: {self.appointment_id}\nPatient: {self.patient_id}\nDoctor: {self.doctor_id}\n"
