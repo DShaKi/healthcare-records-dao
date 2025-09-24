@@ -2,7 +2,16 @@ from abc import ABC, abstractmethod
 from typing import List, Optional
 
 class MedicalHistory:
-    def __init__(self, patient_id: int, diagnoses: str, allergies: list[str], medications: list[str], surgeries: list[str], family_history: list[str], immunizations: list[str], chronic_conditions: list[str], lifestyle_factors: list[str], notes: str):
+    def __init__(self, patient_id: int,
+                 diagnoses: str, 
+                 allergies: list[str], 
+                 medications: list[str], 
+                 surgeries: list[str], 
+                 family_history: list[str], 
+                 immunizations: list[str], 
+                 chronic_conditions: list[str], 
+                 lifestyle_factors: list[str], 
+                 notes: str):
         self.patiend_id = patient_id
         self.diagnose = diagnoses
         self.allergies = allergies
