@@ -1,6 +1,6 @@
 import unittest
 from datetime import date, time
-from AppointmentDAO import Appointment
+from appointment import Appointment
 
 class TestAppointment(unittest.TestCase):
     def setUp(self):

@@ -53,42 +53,42 @@ class PatientDAOMemoryImpl(PatientDAO):
 
 class MedicalHistoryDAO(ABC):
     @abstractmethod
-    def get_medical_history(self):
+    def get(self):
         pass
 
     @abstractmethod
-    def get_all_medical_histories(self):
+    def get_all(self):
         pass
 
     @abstractmethod
-    def save_medical_history(self):
+    def save(self):
         pass
 
     @abstractmethod
-    def update_medical_history(self):
+    def update(self):
         pass
 
     @abstractmethod
-    def delete_medical_history(self):
+    def delete(self):
         pass
 
 class MedicalHistoryDAOMemoryImpl(MedicalHistoryDAO):
     def __init__(self):
         self.medical_histories = {}
 
-    def get_medical_history(self, patient_id: int) -> Optional[MedicalHistory]:
+    def get(self, patient_id: int) -> Optional[MedicalHistory]:
         return self.medical_histories.get(patient_id)
     
-    def get_all_medical_histories(self) -> List[MedicalHistory]:
+    def get_all(self) -> List[MedicalHistory]:
         return list(self.medical_histories.values())
     
-    def save_medical_history(self, medical_history: MedicalHistory) -> None:
+    def save(self, medical_history: MedicalHistory) -> None:
         self.medical_histories[medical_history.patiend_id] = medical_history
 
-    def update_medical_history(self, medical_history: MedicalHistory) -> None:
+    def update(self, medical_history: MedicalHistory) -> None:
         self.medical_histories[medical_history.patiend_id] = medical_history
 
-    def delete_medical_history(self, patient_id: int) -> None:
+    def delete(self, patient_id: int) -> None:
         self.medical_histories.pop(patient_id)
 
 # Prescription

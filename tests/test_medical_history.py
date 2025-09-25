@@ -1,5 +1,5 @@
 import unittest
-from MedicalHistoryDAO import MedicalHistory
+from medical_history import MedicalHistory
 
 class TestMedicalHistory(unittest.TestCase):
     def setUp(self):
