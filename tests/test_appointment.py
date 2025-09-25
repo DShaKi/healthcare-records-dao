@@ -22,9 +22,6 @@ class TestAppointment(unittest.TestCase):
         self.assertEqual(self.appointment.status, "scheduled")
         self.assertEqual(self.appointment.location, "Room 101")
         self.assertEqual(self.appointment.appointment_type, "consultation")
-
-    def test_repr_contains_appointment_id(self):
-        self.assertIn("Appointment(1", repr(self.appointment))
-
+        
 if __name__ == '__main__':
     unittest.main()

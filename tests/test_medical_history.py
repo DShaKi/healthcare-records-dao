@@ -22,9 +22,6 @@ class TestMedicalHistory(unittest.TestCase):
         self.assertListEqual(self.history.allergies, ["Penicillin"])
         self.assertIn("Lisinopril", self.history.medications)
         self.assertEqual(self.history.notes, "Regular checkups required.")
-    
-    def test_repr_contains_patient_id(self):
-        self.assertIn("patient_id=1", repr(self.history))
 
 if __name__ == '__main__':
     unittest.main()

@@ -9,7 +9,7 @@ class MedicalHistory:
                  chronic_conditions: list[str], 
                  lifestyle_factors: list[str], 
                  notes: str):
-        self.patiend_id = patient_id
+        self.patient_id = patient_id
         self.diagnose = diagnoses
         self.allergies = allergies
         self.medications = medications
@@ -21,4 +21,4 @@ class MedicalHistory:
         self.notes = notes
     
     def __repr__(self):
-        return f"id: {self.patiend_id}\ndiagnoses: {self.diagnose}\nmedications: {self.medications}\nsurgeries: {self.surgeries}\nfamily_history: {self.family_history}\nimmunizations: {self.immunizations}\nchronic conditions: {self.chronic_condition}\nlifestyle factors: {self.lifestyle_factors}\nnotes: {self.notes}"
+        return f"patient id: {self.patient_id}\ndiagnoses: {self.diagnose}\nmedications: {self.medications}\nsurgeries: {self.surgeries}\nfamily_history: {self.family_history}\nimmunizations: {self.immunizations}\nchronic conditions: {self.chronic_condition}\nlifestyle factors: {self.lifestyle_factors}\nnotes: {self.notes}"

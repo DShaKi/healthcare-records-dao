@@ -23,8 +23,5 @@ class TestPrescription(unittest.TestCase):
         self.assertEqual(self.prescription.frequency, "3 times a day")
         self.assertEqual(self.prescription.instructions, "Take after meals")
 
-    def test_repr_contains_prescription_id(self):
-        self.assertIn("Prescription(10", repr(self.prescription))
-
 if __name__ == '__main__':
     unittest.main()

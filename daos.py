@@ -18,7 +18,7 @@ class PatientDAO(ABC):
         pass
 
     @abstractmethod
-    def save(self, patient: Patient) -> None:
+    def create(self, patient: Patient) -> None:
         pass
 
     @abstractmethod
@@ -39,14 +39,14 @@ class PatientDAOMemoryImpl(PatientDAO):
     def get_all(self) -> List[Patient]:
         return list(self.patients.values())
     
-    def save(self, patient: Patient) -> None:
+    def create(self, patient: Patient) -> None:
         self.patients[patient.patient_id] = patient
 
     def update(self, patient: Patient) -> None:
         self.patients[patient.patient_id] = patient
 
     def delete(self, patient_id) -> None:
-        self.patients.pop(patient_id)
+        self.patients.pop(patient_id, None)
 
 
 # Medical Hisory
@@ -61,7 +61,7 @@ class MedicalHistoryDAO(ABC):
         pass
 
     @abstractmethod
-    def save(self):
+    def create(self):
         pass
 
     @abstractmethod
@@ -82,14 +82,14 @@ class MedicalHistoryDAOMemoryImpl(MedicalHistoryDAO):
     def get_all(self) -> List[MedicalHistory]:
         return list(self.medical_histories.values())
     
-    def save(self, medical_history: MedicalHistory) -> None:
-        self.medical_histories[medical_history.patiend_id] = medical_history
+    def create(self, medical_history: MedicalHistory) -> None:
+        self.medical_histories[medical_history.patient_id] = medical_history
 
     def update(self, medical_history: MedicalHistory) -> None:
-        self.medical_histories[medical_history.patiend_id] = medical_history
+        self.medical_histories[medical_history.patient_id] = medical_history
 
     def delete(self, patient_id: int) -> None:
-        self.medical_histories.pop(patient_id)
+        self.medical_histories.pop(patient_id, None)
 
 # Prescription
 
@@ -103,7 +103,7 @@ class PrescriptionDAO(ABC):
         pass
 
     @abstractmethod
-    def save(self):
+    def create(self):
         pass
 
     @abstractmethod
@@ -119,19 +119,19 @@ class PrescriptionDAOMemoryImpl(PrescriptionDAO):
         self.prescriptions = {}
 
     def get(self, prescription_id: int) -> Optional[Prescription]:
-        return self.prescriptions[prescription_id]
+        return self.prescriptions.get(prescription_id)
     
     def get_all(self) -> List[Prescription]:
         return list(self.prescriptions.values())
     
-    def save(self, prescription: Prescription) -> None:
+    def create(self, prescription: Prescription) -> None:
         self.prescriptions[prescription.prescription_id] = prescription
 
     def update(self, prescription: Prescription) -> None:
         self.prescriptions[prescription.prescription_id] = prescription
 
     def delete(self, prescription_id: int) -> None:
-        self.prescriptions.pop(prescription_id)
+        self.prescriptions.pop(prescription_id, None)
 
 # Appointment
 
@@ -145,7 +145,7 @@ class AppointmentDAO(ABC):
         pass
 
     @abstractmethod
-    def save(self):
+    def create(self):
         pass
 
     @abstractmethod
@@ -166,11 +166,11 @@ class AppointmentDAOMemoryImpl(AppointmentDAO):
     def get_all(self) -> List[Appointment]:
         return list(self.appointments.values())
     
-    def save(self, appointment: Appointment) -> None:
+    def create(self, appointment: Appointment) -> None:
         self.appointments[appointment.appointment_id] = appointment
 
     def update(self, appointment: Appointment) -> None:
         self.appointments[appointment.appointment_id] = appointment
 
     def delete(self, appointment_id: int) -> None:
-        self.appointments.pop(appointment_id)
+        self.appointments.pop(appointment_id, None)
