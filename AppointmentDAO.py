@@ -31,8 +31,8 @@ class Appointment:
         self.updated_at = datetime.now()
 
     def __repr__(self):
-        return (f"Appointment: {self.appointment_id}\nPatient: {self.patient_id}\nDoctor: {self.doctor_id}\n"
-                f"Date: {self.appointment_date}, {self.start_time}-{self.end_time}\nStatus: {self.status})")
+        return (f"Appointment ID: {self.appointment_id}\nPatient: {self.patient_id}\nDoctor: {self.doctor_id}\n"
+                f"Date: {self.appointment_date}, {self.start_time}-{self.end_time}\nStatus: {self.status}")
 
 class AppointmentDAO(ABC):
     @abstractmethod
