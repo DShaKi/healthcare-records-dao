@@ -1,6 +1,6 @@
 import unittest
 from datetime import date
-from PrescriptionDAO import Prescription
+from prescription import Prescription
 
 class TestPrescription(unittest.TestCase):
     def setUp(self):

@@ -1,5 +1,5 @@
 import unittest
-from your_module import MedicalHistoryDAO, AppointmentDAO, PrescriptionDAO
+from daos import MedicalHistoryDAO, AppointmentDAO, PrescriptionDAO
 from datetime import date, time
 
 class TestGenericDAO(unittest.TestCase):
