@@ -10,42 +10,42 @@ from typing import List, Optional
 
 class PatientDAO(ABC):
     @abstractmethod
-    def get_patient(self, patient_id: int) -> None:
+    def get(self, patient_id: int) -> None:
         pass
 
     @abstractmethod
-    def get_all_patients(self) -> None:
+    def get_all(self) -> None:
         pass
 
     @abstractmethod
-    def save_patient(self, patient: Patient) -> None:
+    def save(self, patient: Patient) -> None:
         pass
 
     @abstractmethod
-    def update_patient(self, patient_id: int) -> None:
+    def update(self, patient_id: int) -> None:
         pass
 
     @abstractmethod
-    def delete_patient(self, patient_id: int) -> None:
+    def delete(self, patient_id: int) -> None:
         pass
 
 class PatientDAOMemoryImpl(PatientDAO):
     def __init__(self):
         self.patients = {}
 
-    def get_patient(self, patient_id: int) -> Optional[Patient]:
+    def get(self, patient_id: int) -> Optional[Patient]:
         return self.patients.get(patient_id)
     
-    def get_all_patients(self) -> List[Patient]:
+    def get_all(self) -> List[Patient]:
         return list(self.patients.values())
     
-    def save_patient(self, patient: Patient) -> None:
+    def save(self, patient: Patient) -> None:
         self.patients[patient.patient_id] = patient
 
-    def update_patient(self, patient: Patient) -> None:
+    def update(self, patient: Patient) -> None:
         self.patients[patient.patient_id] = patient
 
-    def delete_patient(self, patient_id) -> None:
+    def delete(self, patient_id) -> None:
         self.patients.pop(patient_id)
 
 
@@ -95,82 +95,82 @@ class MedicalHistoryDAOMemoryImpl(MedicalHistoryDAO):
 
 class PrescriptionDAO(ABC):
     @abstractmethod
-    def get_prescription(self):
+    def get(self):
         pass
     
     @abstractmethod
-    def get_all_prescriptions(self):
+    def get_all(self):
         pass
 
     @abstractmethod
-    def save_prescription(self):
+    def save(self):
         pass
 
     @abstractmethod
-    def update_prescription(self):
+    def update(self):
         pass
 
     @abstractmethod
-    def delete_prescription(self):
+    def delete(self):
         pass
 
 class PrescriptionDAOMemoryImpl(PrescriptionDAO):
     def __init__(self):
         self.prescriptions = {}
 
-    def get_prescription(self, prescription_id: int) -> Optional[Prescription]:
+    def get(self, prescription_id: int) -> Optional[Prescription]:
         return self.prescriptions[prescription_id]
     
-    def get_all_prescriptions(self) -> List[Prescription]:
+    def get_all(self) -> List[Prescription]:
         return list(self.prescriptions.values())
     
-    def save_prescription(self, prescription: Prescription) -> None:
+    def save(self, prescription: Prescription) -> None:
         self.prescriptions[prescription.prescription_id] = prescription
 
-    def update_prescription(self, prescription: Prescription) -> None:
+    def update(self, prescription: Prescription) -> None:
         self.prescriptions[prescription.prescription_id] = prescription
 
-    def delete_prescription(self, prescription_id: int) -> None:
+    def delete(self, prescription_id: int) -> None:
         self.prescriptions.pop(prescription_id)
 
 # Appointment
 
 class AppointmentDAO(ABC):
     @abstractmethod
-    def get_appointment(self):
+    def get(self):
         pass
     
     @abstractmethod
-    def get_all_appointment(self):
+    def get_all(self):
         pass
 
     @abstractmethod
-    def save_appointment(self):
+    def save(self):
         pass
 
     @abstractmethod
-    def update_appointment(self):
+    def update(self):
         pass
 
     @abstractmethod
-    def delete_appointment(self):
+    def delete(self):
         pass
 
 class AppointmentDAOMemoryImpl(AppointmentDAO):
     def __init__(self):
         self.appointments = {}
 
-    def get_appointment(self, appointment_id: int) -> Optional[Appointment]:
+    def get(self, appointment_id: int) -> Optional[Appointment]:
         return self.appointments.get(appointment_id)
     
-    def get_all_appointment(self) -> List[Appointment]:
+    def get_all(self) -> List[Appointment]:
         return list(self.appointments.values())
     
-    def save_appointment(self, appointment: Appointment) -> None:
+    def save(self, appointment: Appointment) -> None:
         self.appointments[appointment.appointment_id] = appointment
 
-    def update_appointment(self, appointment: Appointment) -> None:
+    def update(self, appointment: Appointment) -> None:
         self.appointments[appointment.appointment_id] = appointment
 
-    def delete_appointment(self, appointment_id: int) -> None:
+    def delete(self, appointment_id: int) -> None:
         self.appointments.pop(appointment_id)

@@ -1,15 +1,15 @@
 import unittest
-from daos import MedicalHistoryDAO, AppointmentDAO, PrescriptionDAO
+from daos import MedicalHistoryDAOMemoryImpl, AppointmentDAOMemoryImpl, PrescriptionDAOMemoryImpl
 from datetime import date, time
 
 class TestGenericDAO(unittest.TestCase):
     def setUp(self):
-        self.medical_dao = MedicalHistoryDAO()
-        self.appointment_dao = AppointmentDAO()
-        self.prescription_dao = PrescriptionDAO()
+        self.medical_dao = MedicalHistoryDAOMemoryImpl()
+        self.appointment_dao = AppointmentDAOMemoryImpl()
+        self.prescription_dao = PrescriptionDAOMemoryImpl()
 
     def test_medical_history_crud(self):
-        history = self.medical_dao.create(
+        history = self.medical_dao.save(
             patient_id=1,
             diagnoses=["Hypertension"],
             allergies=[],
